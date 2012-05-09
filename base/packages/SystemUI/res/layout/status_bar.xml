@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* apps/common/assets/default/default/skins/StatusBar.xml
+**
+** Copyright 2006, The Android Open Source Project
+** Patched by Sven Dawitz; Copyright (C) 2011 CyanogenMod Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+**
+**     http://www.apache.org/licenses/LICENSE-2.0 
+**
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+*/
+-->
+
+<!--    android:background="@drawable/status_bar_closed_default_background" -->
+<com.android.systemui.statusbar.CmStatusBarView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/statusbar_background"
+    android:focusable="true"
+    android:descendantFocusability="afterDescendants"
+    >
+
+    <LinearLayout android:id="@+id/icons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+            
+        <com.android.systemui.statusbar.IconMerger android:id="@+id/notificationIcons"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="6dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"/>  
+            
+        <LinearLayout android:id="@+id/statusIcons"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingRight="1dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"/>    
+
+        <com.android.systemui.statusbar.CmSignalText
+            android:textAppearance="@*android:style/TextAppearance.StatusBar.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="2dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"/>
+
+        <com.android.systemui.statusbar.CmBatteryText
+            android:textAppearance="@*android:style/TextAppearance.StatusBar.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="2dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"/>
+
+        <com.android.systemui.statusbar.CmBatteryMiniIcon
+            android:id="@+id/CmBatteryMiniIcon"
+            android:textAppearance="@*android:style/TextAppearance.StatusBar.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"/>
+
+        <com.android.systemui.statusbar.Clock
+            android:textAppearance="@*android:style/TextAppearance.StatusBar.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:paddingRight="6dip"
+            android:gravity="center_vertical|left"
+            />
+
+        <!-- The following are button layouts for tablet style statusbar buttons
+             Visibility is handled in config.xml by setting config_statusbar_buttons = "true" -->
+	    <LinearLayout android:id="@+id/buttons"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:orientation="horizontal">
+	        <ImageButton android:id="@+id/status_edge_left"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_edge_right_bottom" />
+
+	        <ImageButton android:id="@+id/status_home"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_home_bottom" />
+
+	        <ImageButton android:id="@+id/status_sep1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_sep_bottom" />
+
+	        <ImageButton android:id="@+id/status_menu"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_menu_bottom" />
+
+	        <ImageButton android:id="@+id/status_sep2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_sep_bottom" />
+
+	        <ImageButton android:id="@+id/status_back"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_back_bottom" />
+
+	        <ImageButton android:id="@+id/status_sep3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_sep_bottom" />
+
+            <ImageButton android:id="@+id/status_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_statusbar_search_bottom" />
+
+            <ImageButton android:id="@+id/status_sep4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_statusbar_sep_bottom" />
+
+	        <ImageButton android:id="@+id/status_quick_na"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_statusbar_na_up_bottom" />
+
+            <ImageButton android:id="@+id/status_sep5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@drawable/ic_statusbar_sep_bottom" />
+
+            <ImageButton android:id="@+id/status_hide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@drawable/ic_statusbar_hide_bottom" />
+
+	        <ImageButton android:id="@+id/status_edge_right"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:visibility="gone"
+	            android:background="@drawable/ic_statusbar_edge_left_bottom" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/ticker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="6dip"
+        android:animationCache="false"
+        android:orientation="horizontal" >
+        <ImageSwitcher android:id="@+id/tickerIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dip"
+            >
+            <com.android.systemui.statusbar.AnimatedImageView
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                />
+            <com.android.systemui.statusbar.AnimatedImageView
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                />
+        </ImageSwitcher>
+        <com.android.systemui.statusbar.TickerView android:id="@+id/tickerText"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dip"
+            android:paddingRight="10dip">
+            <TextView
+                android:textAppearance="@*android:style/TextAppearance.StatusBar.Ticker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                />
+            <TextView
+                android:textAppearance="@*android:style/TextAppearance.StatusBar.Ticker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                />
+        </com.android.systemui.statusbar.TickerView>
+    </LinearLayout>
+
+    <com.android.systemui.statusbar.DateView android:id="@+id/date"
+        android:textAppearance="@*android:style/TextAppearance.StatusBar.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:singleLine="true"
+        android:gravity="center_vertical|left"
+        android:paddingLeft="6px"
+        android:paddingRight="6px"
+        android:background="@drawable/statusbar_background"
+        />
+</com.android.systemui.statusbar.CmStatusBarView>
